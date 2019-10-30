@@ -1,3 +1,132 @@
+<head><style> 
+ 
+Advertisement
+
+Styling CSS Links
+Monday Oct 21st 2019 by Octavia Anghel
+
+Octavia Anghel walks you through how to set different properties of a hyperlink using the proper CSS property.
+
+A link represents a connection from one web page to another web page. This CSS property can be used for linking styles in different ways. In this article, you will learn how to set different properties of a hyperlink using the CSS property. So, let's see the best practices for styling links.
+
+The first thing to understand is the concept of link states, different states in which there may be links that can be designed using different pseudo-classes:
+
+unvisited link: is the default state in which a link is located, more precisely when it is not in any other state. It can be designed in a specific way using the link pseudo class.
+visited: represents a link that has already been accessed, visited, styled using the: visited pseudo class.
+active: represents a link that is activated by clicking on the link, styled using the: active pseudo class.
+hover: represents a link that, once the user hovers over the link, the property is activated, styled using the: hover pseudo class.
+focus: represents a link that has been focused (example: the user moves the action to a page element using the Tab key or programmatically focused using HTMLElement.focus ()), styled using the: focus pseudo class
+Here is an example of a simple link:
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>CSS links</title> 
+<style> 
+p { 
+   font-size: 30px; 
+   text-align: center; 
+   }          
+</style> 
+</head> 
+<body> 
+<p><a href="https://www.herbalife.com">Example for a simple link</a></p> 
+</body>     
+</html>
+Advertisement
+
+CSS Links Fig1
+
+You can see some things as you explore the default styles, namely that links that have not been accessed are blue, links are highlighted, links visited are purple, focused links have a contour around them and the active links are red.
+
+The default styles can be modified or deactivated, using the following CSS properties: mouse pointer style cursor, text color and text outline.
+
+Here is an example using the text-decoration property:
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p { 
+   font-size: 30px; 
+   text-align: center; 
+   }          
+
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<p><b><a href="default.asp" target="_blank">Here is a link</a></b></p>
+</body>
+</html>
+CSS Links Fig2
+
+Here is another example, this time using the background-color property:
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p { 
+   font-size: 30px; 
+   text-align: center; 
+   }          
+a:link {
+  background-color: coral;
+}
+a:visited {
+  background-color: cyan;
+}
+a:hover {
+  background-color: DarkMagenta;
+}
+a:active {
+  background-color: DarkSalmon ;
+} 
+</style>
+</head>
+<body>
+<p><b><a href="default.asp" target="_blank">This is a link</a></b></p>
+</body>
+</html>
+CSS Links Fig3
+
+Advanced CSS link buttons: to create a link button, use some CSS-style properties, so you can create the box and make it interactive. You will need the color property to set the color of the text representing the link, the background color to add color to the button itself, the text-decoration to remove the underline from the link, the text-align property to set the alignment of your link, the display property to describes how your link and padding property should be displayed and determine how big your button will be.
+
+Here is the example:
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+a:link, a:visited {
+    background-color: DarkSalmon ;
+    border: none;
+    color: #FFFFFF;
+    padding: 25px 52px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center; 
+    cursor: pointer;
+    display: inline-block;
+}
+a:hover, a:active {
+    background-color: DarkRed ;
+} </style></head>
 Happy Diwali 
-I love you
+
 <a href="chdtrust.github.io" width ="100%">Life extension </a>
