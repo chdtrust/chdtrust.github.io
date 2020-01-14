@@ -22,7 +22,10 @@ function getLocation() {
 function showPosition(position) {
     x.innerHTML="Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
+  window.open("https://www.google.com/maps/@"+ position.coords.latitude+","+position.coords.longitude+",15z", "_blank"); 
 }
+  
+
 </script>
 
 </body>
