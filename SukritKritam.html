@@ -4,7 +4,7 @@
   </style>
 </head>
 <body onload="typeWriter()">
-  <p id="jas1">
+  <p id="jas1" >
     <ul><li id="jas"> <li id="jas2">  </ul>  <ul><li>Good deed  <li>Sikh lab location Mountains Kasauli solaan 30.9768453,77.0644651 Go to kasauli go further 2021 = Not Done  <li>Near punjab chandigarh border dlf go and see = Not Done  <li></ul>
   </p>
 
@@ -21,6 +21,9 @@ function typeWriter() {
     i++;
     setTimeout(typeWriter, speed);
   }
+  two();
+}
+function two(){
   if (i2 < txt2.length) {
     document.getElementById("jas2").innerHTML += txt2.charAt(i2);
     i2++;
