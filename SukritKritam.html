@@ -5,13 +5,14 @@
 </head>
 <body onload="typeWriter()">
   <p id="jas1">
-    <ul><li id="jas">Jas Swasat.  <li id="jas2">Unseen presence.  </ul>  <ul><li>Good deed  <li>Sikh lab location Mountains Kasauli solaan 30.9768453,77.0644651 Go to kasauli go further 2021 = Not Done  <li>Near punjab chandigarh border dlf go and see = Not Done  <li></ul>
+    <ul><li id="jas"> <li id="jas2">  </ul>  <ul><li>Good deed  <li>Sikh lab location Mountains Kasauli solaan 30.9768453,77.0644651 Go to kasauli go further 2021 = Not Done  <li>Near punjab chandigarh border dlf go and see = Not Done  <li></ul>
   </p>
 
 
 <script>
 var i = 0;
-var txt = '';
+var txt = 'Jas Swasat. ';
+var txt2='Unseen presence.';
 var speed = 50;
 
 function typeWriter() {
@@ -20,8 +21,8 @@ function typeWriter() {
     i++;
     setTimeout(typeWriter, speed);
   }
-  if (i < txt.length) {
-    document.getElementById("jas2").innerHTML += txt.charAt(i);
+  if (i < txt2.length) {
+    document.getElementById("jas2").innerHTML += txt2.charAt(i);
     i++;
     setTimeout(typeWriter, speed);
   }
