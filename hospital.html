@@ -1,10 +1,84 @@
-<a href="http://chdtrust.epizy.com">Our Sponsors</a>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/750px-Search_Icon.svg.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+
 <h1>Ambulance driver's phone number</h1>
-<p> Government ambulance <a href="tel:108">108</a></p>
-<p> Pgi Ambulance number 1 <a href="tel:7347617274">73476 17274</a></p>
-<p> Pgi ambulance number 2 <a href="tel:9780225305">97802 25305</a></p>
-<p> Fortis hospital 1 <a href="tel:911724692222">91 172 469 2222</a></p>
-<p> Fortis hospital 2 <a href="tel:+911725021222">+91 172 502 1222</a></p>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type anything">
+
+<ul id="myUL">
+  <li> Government ambulance <a href="tel:108">108</a></li>
+<li>  <a href="tel:7347617274">73476 17274 Pgi Ambulance number 1</a></li>
+<li>  <a href="tel:9780225305">97802 25305 Pgi ambulance number 2</a></li>
+<li>  <a href="tel:911724692222">91 172 469 2222 Fortis hospital 1</a></li>
+<li>  <a href="tel:+911725021222">+91 172 502 1222 Fortis hospital 2</a></li>
+</ul>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
+
+<a href="http://chdtrust.epizy.com">Our Sponsors</a>
+
+
 <p>Add more numbers here using this form it will take some time for numbers to appear. They won't show up immediately.</p>
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfd8GzIqkGPPQUdFSfiQoKBfmmBHDALrH1tFt1uXDrETC64dg/viewform?embedded=true" width="640" height="715" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
