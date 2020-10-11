@@ -1,3 +1,4 @@
+<html>
 <head>
 
 </head>
@@ -9,8 +10,29 @@
 <ul>
 <li>Work1: Finding the edge of the universe. </li>
 <li>Simulation of space elevator</li>
-<li><a href="https://youtu.be/qPQQwqGWktE"></a></li>
+<li><a href="https://youtu.be/qPQQwqGWktE">Video of space elevator</a></li>
 <li>We need to travel</li>
 <li>Rocket building robot</li>
+<li>Buy camera</li>
 </ul>
+
 </body>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+</html>
