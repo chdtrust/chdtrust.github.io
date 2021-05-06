@@ -1,7 +1,25 @@
 <html>
+
 <ul>
+<li>Select a File to Load:</li>
+    <li><input type="file" id="fileToLoad"></li>
+    <li><button onclick="loadFileAsText()">Load Selected File</button></li>
+
 <li><h1>Lysoszyme purification protocol</h1>
 </li>
 <li></li>
 </ul>
+<script>
+function loadFileAsText(){
+  var fileToLoad = document.getElementById("fileToLoad").files[0];
+
+  var fileReader = new FileReader();
+  fileReader.onload = function(fileLoadedEvent){
+      var textFromFileLoaded = fileLoadedEvent.target.result;
+      document.getElementById("inputTextToSave").value = textFromFileLoaded;
+  };
+
+  fileReader.readAsText(fileToLoad, "UTF-8");
+}
+</script>
 </html>
