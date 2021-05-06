@@ -1,25 +1,43 @@
 <html>
 
-<ul>
-<li>Select a File to Load:</li>
-    <li><input type="file" id="fileToLoad"></li>
-    <li><button onclick="loadFileAsText()">Load Selected File</button></li>
+<ul><li>
+<div>
+ <label for="input-file">Specify a file:</label><br>
+ <input type="file" id="input-file">
+</div>
 
+<textarea id="content-target"></textarea></li>
 <li><h1>Lysoszyme purification protocol</h1>
 </li>
 <li><label id="inputTextToSave">Label</label></li>
 </ul>
 <script>
-function loadFileAsText(){
-  var fileToLoad = document.getElementById("fileToLoad").files[0];
 
-  var fileReader = new FileReader();
-  fileReader.onload = function(fileLoadedEvent){
-      var textFromFileLoaded = fileLoadedEvent.target.result;
-      document.getElementById("inputTextToSave").value = textFromFileLoaded;
-  };
+document.getElementById('input-file')
+  .addEventListener('change', getFile)
 
-  fileReader.readAsText(fileToLoad, "UTF-8");
+function getFile(event) {
+	const input = event.target
+  if ('files' in input && input.files.length > 0) {
+	  placeFileContent(
+      document.getElementById('content-target'),
+      input.files[0])
+  }
+}
+
+function placeFileContent(target, file) {
+	readFileContent(file).then(content => {
+  	target.value = content
+  }).catch(error => console.log(error))
+}
+
+function readFileContent(file) {
+	const reader = new FileReader()
+  return new Promise((resolve, reject) => {
+    reader.onload = event => resolve(event.target.result)
+    reader.onerror = error => reject(error)
+    reader.readAsText(file)
+  })
 }
 </script>
 </html>
