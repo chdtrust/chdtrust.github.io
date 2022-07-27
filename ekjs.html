@@ -60,8 +60,30 @@ h2 {
 <input type="text" id="myInput" name="myInput" onkeyup="myFunction()" placeholder="Search for commands or anything.." title="Type anything" autofocus>
 
 <ul id="myUL">
+  <li>< a href ="#">Get file contents <input type="file" name="inputfile"
+            id="inputfile">
+    <br>
+   
+    <pre id="output"></pre> </a></li>
  </ul>
 
+  
+
+      
+    <script type="text/javascript">
+        document.getElementById('inputfile')
+            .addEventListener('change', function() {
+              
+            var fr=new FileReader();
+            fr.onload=function(){
+                document.getElementById('output')
+                        .textContent=fr.result;
+            }
+              
+            fr.readAsText(this.files[0]);
+        })
+    </script>  
+  
 <script>
 function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
