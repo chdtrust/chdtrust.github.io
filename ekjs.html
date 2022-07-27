@@ -60,15 +60,37 @@ h2 {
 <input type="text" id="myInput" name="myInput" onkeyup="myFunction()" placeholder="Search for commands or anything.." title="Type anything" autofocus>
 
 <ul id="myUL">
-  <li><a href ="#myInput">Get file contents <input type="file" name="inputfile"
+  <li><a href ="#myInput">Get, Display text file contents <input type="file" name="inputfile"
             id="inputfile">
     <br>
    
     <pre id="output"></pre> </a></li>
+  
+  <li><a href="#">Split a file into user input number of parts.<br> <input type="text" id="fileparts" name="fileparts" value="3"><br>
+    <input type="file" name="inputfilesplit"
+            id="inputfilesplit"></a></li>
  </ul>
 
   
-
+    <script type="text/javascript">
+        document.getElementById('inputfilesplit')
+            .addEventListener('change', function() {
+              
+            var fr=new FileReader();
+            fr.onload=function(){
+                let textinputfilesplit =fr.result;
+              let length = textinputfilesplit.length;
+              let x2 = document.getElementById("fileparts").value;
+              let splicepos=length/x2;
+              for (let i = 0; i < length; splicepos) {
+  let resultsplitfiles = textinputfilesplit.slice(i, i+splicepos);
+                
+} 
+            }
+              
+            fr.readAsText(this.files[0]);
+        })
+    </script>  
       
     <script type="text/javascript">
         document.getElementById('inputfile')
