@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  
+* {
+  box-sizing: border-box;
+}
 
+body  {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Lake_McDonald_%285387250181%29.jpg/1920px-Lake_McDonald_%285387250181%29.jpg");
+  background-color: #cccccc;
+}
+h2 {
+  color: #000080;
+}
+
+  
+  
+#myInput {
+  background-image: url("https://img.icons8.com/doodle/96/000000/search--v1.png");
+  background-position: 5px 7px;
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+
+
+<h2>Command list</h2>
+
+<input type="text" id="myInput" name="myInput" onkeyup="myFunction()" placeholder="Search for commands or anything.." title="Type anything" autofocus>
+
+<ul id="myUL">
+ </ul>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
