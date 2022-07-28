@@ -73,6 +73,7 @@ h2 {
 
   
     <script type="text/javascript">
+      const fs = require('fs')
         document.getElementById('inputfilesplit')
             .addEventListener('change', function() {
               
@@ -84,6 +85,11 @@ h2 {
               let splicepos=length/x2;
               for (let i = 0; i < length; splicepos) {
   let resultsplitfiles = textinputfilesplit.slice(i, i+splicepos);
+                fs.writeFile('/chdtrusttest.txt', resultsplitfiles, err => {
+  if (err) {
+    console.error(err)
+    return
+  }
                 
 } 
             }
