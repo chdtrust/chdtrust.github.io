@@ -83,9 +83,9 @@ h2 {
               let length = textinputfilesplit.length;
               let x2 = document.getElementById("fileparts").value;
               let splicepos=length/x2;
-              let splicepos2=splicepos
-              for (let i = 0; i < length; splicepos2+=splicepos) {
-  let resultsplitfiles = textinputfilesplit.slice(i, i+splicepos2);
+             
+              for (let i = 0; i < length; i+=splicepos) {
+  let resultsplitfiles = textinputfilesplit.slice(i, i+splicepos);
             
                 download('chdtrusttest.txt', resultsplitfiles);    
                 
