@@ -85,13 +85,7 @@ h2 {
               let splicepos=length/x2;
               for (let i = 0; i < length; splicepos) {
   let resultsplitfiles = textinputfilesplit.slice(i, i+splicepos);
-                fs.writeFile('/chdtrusttest.txt', resultsplitfiles, err => {
-  if (err) {
-    console.error(err)
-    return
-  }
-                
-}) 
+            
             }
               
             fr.readAsText(this.files[0]);
