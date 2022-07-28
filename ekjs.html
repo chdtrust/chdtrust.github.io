@@ -86,20 +86,28 @@ h2 {
               for (let i = 0; i < length; splicepos) {
   let resultsplitfiles = textinputfilesplit.slice(i, i+splicepos);
             
-                    fs.writeFile('/chdtrusttest.txt', resultsplitfiles, err => {
-  if (err) {
-    console.error(err)
-    return
-  }
-                
-}) 
+                download('chdtrusttest.txt', resultsplitfiles);    
                 
             }
             }
             fr.readAsText(this.files[0]);
         })
-    </script>  
       
+      
+       function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+    </script>  
+     
     <script type="text/javascript">
         document.getElementById('inputfile')
             .addEventListener('change', function() {
