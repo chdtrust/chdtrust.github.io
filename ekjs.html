@@ -2,6 +2,13 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+   <script defer 
+            src="https://pyscript.net/alpha/pyscript.js">
+        </script>
+        <py-env>
+            pandas
+        </py-env>
 <style>
   
 * {
@@ -69,9 +76,17 @@ h2 {
   <li><a href="#">Split a file into user input number of parts.<br> <input type="text" id="fileparts" name="fileparts" value="3"><br>
     <input type="file" name="inputfilesplit"
             id="inputfilesplit"></a></li>
+  
+  <li><a href="mypyscript()">Normalize a csv file</a></li>
  </ul>
 
-  
+  <py-script>
+    def mypyscript():
+     # sfilename=sfile()
+      for i in range (3, 101): 
+        print (done)
+    #change to 1 before running next time
+      </py-script>
     <script type="text/javascript">
       
         document.getElementById('inputfilesplit')
