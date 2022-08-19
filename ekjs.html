@@ -88,14 +88,14 @@ h2 {
               
               let x2 = document.getElementById("numseq").value;
               const myArr = textinputfilesplit.split("\n>");
-              const items = myArr.slice(0,x2)
+              const items = myArr.slice(0,x2);
              
               let textselfasta = items.join("\n>");
             
                 download('chdtrusttest.txt', textselfasta);    
                 
             }
-            }
+            
             fr.readAsText(this.files[0]);})
    
       
