@@ -57,7 +57,7 @@ h2 {
 <body>
 
 
-<h2>Command list version3</h2>
+<h2>Command list version:4</h2>
 
 <input type="text" id="myInput" name="myInput" onkeyup="myFunction()" placeholder="Search for commands" title="Type anything" autofocus>
 
@@ -74,7 +74,7 @@ h2 {
   <li><a href="#">Collect user given number of sequences from a file containing fasta<br> <input type="text" id="numseq" name="numseq" value="9"><br>
     <input type="file" name="numseqfile"
             id="numseqfile"></a></li>
-  <li><a href="#">Count dipeptides and tripeptides from a fasta file<br> <input type="text" id="attn" name="attn" value="y"><br>
+  <li><a href="#">Count dipeptides and tripeptides from a fasta file<br><label>Output file name: </label><br> <input type="text" id="opfn" name="opfn" value="ct.csv"><br> <label>Attribute name: </label><input type="text" id="attn" name="attn" value="y"><br>
     <input type="file" name="dtfile"
             id="dtfile"></a></li>
  
@@ -84,7 +84,7 @@ h2 {
    
    document.getElementById('dtfile')
             .addEventListener('change', function() {
-     alert("Script has begun, Don't close page.");
+     alert("Press ok to begin script, Don't close page. ");
 
         var fr=new FileReader();
             fr.onload=function(){
@@ -109,7 +109,7 @@ h2 {
               
                           
                 download('chdditri.csv', textcoufasta);    
-                alert("Script finished running");
+                alert("Script finished running. Press ok.");
             }
             
             fr.readAsText(this.files[0]);})
