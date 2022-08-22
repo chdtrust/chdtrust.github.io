@@ -81,14 +81,87 @@ h2 {
   <li><a href="#">Join or concatenate two files<label>Output file name: </label> <input type="text" id="opfncat" name="opfncat" value="ct.csv"><br> <label>File 1: </label><input type="file" id="catfile1" name="catfile1"<br>
     <label>File 2: </label><input type="file" name="catfile2"
             id="catfile2"></a></li>
- 
+  <li><a href="#">Linear svc<br> <label>File input: </label><input type="file" name="csvf"
+            id="csvf"></a></li>
  </ul>
 
-  
+   <py-env>
+  - numpy
+  - pandas
+  - sklearn
+  </py-env>
+
+  <py-script>
+    
+  </py-script>
   
  <script type="text/javascript">
+   
+   npm install js-svm
    var texcatfile1="";
+   
+    document.getElementById('csvf')
+            .addEventListener('change', function() {
+        var fr=new FileReader();
+            fr.onload=function(){
+                let texcatfile2 =fr.result;
+              var jssvm = require('js-svm');
+var iris = require('js-datasets-iris');
+ 
+var svm = new jssvm.BinarySvmClassifier();
+ 
+iris.shuffle();
+ 
+var trainingDataSize = Math.round(iris.rowCount * 0.9);
+var trainingData = [];
+var testingData = [];
+for(var i=0; i < iris.rowCount ; ++i) {
+   var row = [];
+   row.push(iris.data[i][0]); // sepalLength;
+   row.push(iris.data[i][1]); // sepalWidth;
+   row.push(iris.data[i][2]); // petalLength;
+   row.push(iris.data[i][3]); // petalWidth;
+   row.push(iris.data[i][4] == "Iris-virginica" ? 1.0 : 0.0); // output which is 1 if species is Iris-virginica; 0 otherwise
+   if(i < trainingDataSize){
+        trainingData.push(row);
+   } else {
+       testingData.push(row);
+   }
+}
+ 
+ 
+var result = svm.fit(trainingData);
+ 
+console.log(result);
+ 
+for(var i=0; i < testingData.length; ++i){
+   var predicted = svm.transform(testingData[i]);
+   console.log("actual: " + testingData[i][4] + " predicted: " + predicted);
+}
+              
+              
+               
+                
+            }
+            
+            fr.readAsText(this.files[0]);})
   
+    document.getElementById('catfile2')
+            .addEventListener('change', function() {
+        var fr=new FileReader();
+            fr.onload=function(){
+                let texcatfile2 =fr.result;
+              
+              let outputfilename = document.getElementById("opfncat").value;
+              
+            texcatfile1+="\n"+texcatfile2;
+            download(outputfilename, texcatfile1);    
+                
+            }
+            
+            fr.readAsText(this.files[0]);})
+   
+   
    document.getElementById('catfile1')
             .addEventListener('change', function() {
         var fr=new FileReader();
@@ -235,6 +308,6 @@ function myFunction() {
     }
 }
 </script>
-  <label>version:12</label>
+  <label>version:13</label>
 </body>
 </html>
