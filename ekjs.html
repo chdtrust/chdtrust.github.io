@@ -57,7 +57,7 @@ h2 {
 <body>
 
 
-<h2>Command list version:4</h2>
+<h2>Command list version:5</h2>
 
 <input type="text" id="myInput" name="myInput" onkeyup="myFunction()" placeholder="Search for commands" title="Type anything" autofocus>
 
@@ -90,6 +90,7 @@ h2 {
             fr.onload=function(){
                 let textinputfas =fr.result;
               let x3 = document.getElementById("attn").value;
+              var opf= document.getElementById("opfn").value;
               let textcoufasta="";
               const myArr = textinputfas.split("\n>");
               const aaa=["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"];
@@ -108,7 +109,7 @@ h2 {
               
               
                           
-                download('chdditri.csv', textcoufasta);    
+                download(opfn, textcoufasta);    
                 alert("Script finished running. Press ok.");
             }
             
