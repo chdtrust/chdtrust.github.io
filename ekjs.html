@@ -57,7 +57,7 @@ h2 {
 <body>
 
 
-<h2>Command list version1</h2>
+<h2>Command list version2</h2>
 
 <input type="text" id="myInput" name="myInput" onkeyup="myFunction()" placeholder="Search for commands or anything.." title="Type anything" autofocus>
 
@@ -97,10 +97,10 @@ h2 {
               for (const onefas of myArr){
               for(const x of aaa){
                 for (const y of aaa){
-                for (const z of aaa){textcoufasta+=((onefas.match(x+y+z)).length).toString()+",";
+                for (const z of aaa){textcoufasta+=((onefas.split(x+y+z)).length-1).toString()+",";
                 }}}
                for(const a of aaa){
-                for (const b of aaa){textcoufasta+=((onefas.match(a+b)).length).toString()+",";}
+                for (const b of aaa){textcoufasta+=((onefas.split(a+b)).length-1).toString()+",";}
                }
                 textcoufasta+=attn+"\n";
               }
