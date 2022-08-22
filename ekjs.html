@@ -74,10 +74,28 @@ h2 {
   <li><a href="#">Collect precise number of sequences from a file containing fasta<br> <input type="text" id="numseq" name="numseq" value="9"><br>
     <input type="file" name="numseqfile"
             id="numseqfile"></a></li>
+  <li>< a href="#">Count dipeptides and tripeptides from a fasta file<br>
+    <input type="file" name="dtfile"
+            id="dtfile"></a></li>
  
  </ul>
 
  <script type="text/javascript">
+   
+   document.getElementById('dtfile')
+            .addEventListener('change', function() {
+        var fr=new FileReader();
+            fr.onload=function(){
+                let textinputfas =fr.result;
+              
+              const myArr = textinputfas.split("\n>");
+                          myArr.forEach(mycount);
+                download('chdditri.csv', textcoufasta);    
+                
+            }
+            
+            fr.readAsText(this.files[0]);})
+
       
         document.getElementById('numseqfile')
             .addEventListener('change', function() {
