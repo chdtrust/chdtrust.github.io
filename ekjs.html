@@ -71,7 +71,7 @@ h2 {
     <input type="file" name="inputfilesplit"
             id="inputfilesplit"></a></li>
   <li><a href="https://twitter.com/search?q=%23chdtrust&src=typed_query"> For any complaints, suggestion or feedback. Use #chdtrust and tweet on twitter.</a></li>
-  <li><a href="#">Collect user given number of sequences from a file containing fasta<br> <input type="text" id="numseq" name="numseq" value="9"><br>
+  <li><a href="#">Collect user given number of sequences from a file containing fasta<br> <label>Enter number of sequences: </label><input type="text" id="numseq" name="numseq" value="9"><br>
     <input type="file" name="numseqfile"
             id="numseqfile"></a></li>
   <li><a href="#">Count dipeptides and tripeptides from a fasta file<br><label>Output file name: </label> <input type="text" id="opfn" name="opfn" value="ct.csv"><br> <label>Attribute name: </label><input type="text" id="attn" name="attn" value="y"><br>
@@ -79,7 +79,7 @@ h2 {
             id="dtfile"></a></li>
   
   <li><a href="#">Join or concatenate two files<label>Output file name: </label> <input type="text" id="opfncat" name="opfncat" value="ct.csv"><br> <label>File 1: </label><input type="file" id="catfile1" name="catfile1"<br>
-    <input type="file" name="catfile2"
+    <label>File 2: </label><input type="file" name="catfile2"
             id="catfile2"></a></li>
  
  </ul>
@@ -234,6 +234,6 @@ function myFunction() {
     }
 }
 </script>
-  <label>version:10</label>
+  <label>version:11</label>
 </body>
 </html>
