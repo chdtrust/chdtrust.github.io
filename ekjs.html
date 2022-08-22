@@ -87,6 +87,14 @@ h2 {
         var fr=new FileReader();
             fr.onload=function(){
                 let textinputfas =fr.result;
+              const aaa=["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"];
+              const ditri = [];
+              for(const x of aaa){
+                for (const y of aaa){
+                for (const z of aaa){ditri.push(x+y+z);
+                }}}
+              
+              
               
               const myArr = textinputfas.split("\n>");
                           myArr.forEach(mycount);
@@ -96,7 +104,7 @@ h2 {
             
             fr.readAsText(this.files[0]);})
 
-      
+      function mycount(item,index,arr2){}
         document.getElementById('numseqfile')
             .addEventListener('change', function() {
         var fr=new FileReader();
