@@ -57,7 +57,7 @@ h2 {
 <body>
 
 
-<h2>Command list</h2>
+<h2>Command list version1</h2>
 
 <input type="text" id="myInput" name="myInput" onkeyup="myFunction()" placeholder="Search for commands or anything.." title="Type anything" autofocus>
 
@@ -90,7 +90,7 @@ h2 {
             fr.onload=function(){
                 let textinputfas =fr.result;
               let x3 = document.getElementById("attn").value;
-              let textcoufasta=""
+              let textcoufasta="";
               const myArr = textinputfas.split("\n>");
               const aaa=["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"];
               const ditri = [];
@@ -102,7 +102,7 @@ h2 {
                for(const a of aaa){
                 for (const b of aaa){textcoufasta+=((onefas.match(a+b)).length).toString()+",";}
                }
-                textcoufasta+=attn+"\n"
+                textcoufasta+=attn+"\n";
               }
               
               
