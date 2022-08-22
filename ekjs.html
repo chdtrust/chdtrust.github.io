@@ -84,6 +84,8 @@ h2 {
    
    document.getElementById('dtfile')
             .addEventListener('change', function() {
+     alert("Script has begun, Don't close page.");
+
         var fr=new FileReader();
             fr.onload=function(){
                 let textinputfas =fr.result;
@@ -94,10 +96,10 @@ h2 {
               for (const onefas of myArr){
               for(const x of aaa){
                 for (const y of aaa){
-                for (const z of aaa){textcoufasta+=((onefas.match(x+y+z)).length;).toString()+",";
+                for (const z of aaa){textcoufasta+=((onefas.match(x+y+z)).length).toString()+",";
                 }}}
                for(const a of aaa){
-                for (const b of aaa){textcoufasta+=(onefas.match(a+b)).length;).toString()+",";}
+                for (const b of aaa){textcoufasta+=((onefas.match(a+b)).length).toString()+",";}
                }
                 textcoufasta+=attn+"\n"
               }
@@ -106,10 +108,11 @@ h2 {
               
                           
                 download('chdditri.csv', textcoufasta);    
-                
+                alert("Script finished running");
             }
             
             fr.readAsText(this.files[0]);})
+   
 
       
         document.getElementById('numseqfile')
