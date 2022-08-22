@@ -77,10 +77,43 @@ h2 {
   <li><a href="#">Count dipeptides and tripeptides from a fasta file<br><label>Output file name: </label> <input type="text" id="opfn" name="opfn" value="ct.csv"><br> <label>Attribute name: </label><input type="text" id="attn" name="attn" value="y"><br>
     <input type="file" name="dtfile"
             id="dtfile"></a></li>
+  
+  <li><a href="#">Join or concatenate two files<label>Output file name: </label> <input type="text" id="opfncat" name="opfncat" value="ct.csv"><br> <label>File 1: </label><input type="file" id="catfile1" name="catfile1"<br>
+    <input type="file" name="catfile2"
+            id="catfile2"></a></li>
  
  </ul>
 
+  
+  
  <script type="text/javascript">
+  
+   document.getElementById('catfile1')
+            .addEventListener('change', function() {
+        var fr=new FileReader();
+            fr.onload=function(){
+                var texcatfile1 =fr.result;
+              
+                
+                
+            }
+            
+            fr.readAsText(this.files[0]);})
+   
+   document.getElementById('catfile2')
+            .addEventListener('change', function() {
+        var fr=new FileReader();
+            fr.onload=function(){
+                let texcatfile2 =fr.result;
+              
+              let outputfilename = document.getElementById("opfncat").value;
+              
+            texcatfile1+="\n"+texcatfile2
+            download(outputfilename, texcatfile1);    
+                
+            }
+            
+            fr.readAsText(this.files[0]);})
    
    document.getElementById('dtfile')
             .addEventListener('change', function() {
@@ -201,6 +234,6 @@ function myFunction() {
     }
 }
 </script>
-  <label>version:8</label>
+  <label>version:9</label>
 </body>
 </html>
