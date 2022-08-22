@@ -74,7 +74,7 @@ h2 {
   <li><a href="#">Collect precise number of sequences from a file containing fasta<br> <input type="text" id="numseq" name="numseq" value="9"><br>
     <input type="file" name="numseqfile"
             id="numseqfile"></a></li>
-  <li>< a href="#">Count dipeptides and tripeptides from a fasta file<br>
+  <li>< a href="#">Count dipeptides and tripeptides from a fasta file<br> <input type="text" id="attn" name="attn" value="y"><br>
     <input type="file" name="dtfile"
             id="dtfile"></a></li>
  
@@ -87,24 +87,31 @@ h2 {
         var fr=new FileReader();
             fr.onload=function(){
                 let textinputfas =fr.result;
+              let x3 = document.getElementById("attn").value;
+              const myArr = textinputfas.split("\n>");
               const aaa=["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"];
               const ditri = [];
+              for (const onefas of myArr){
               for(const x of aaa){
                 for (const y of aaa){
-                for (const z of aaa){ditri.push(x+y+z);
+                for (const z of aaa){textcoufasta+=(onefas.match(x+y+z)).length;).toString()+",";
                 }}}
+               for(const a of aaa){
+                for (const b of aaa){textcoufasta+=(onefas.match(a+b)).length;).toString()+",";}
+               }
+                textcoufasta+=attn+"\n"
+              }
               
               
               
-              const myArr = textinputfas.split("\n>");
-                          myArr.forEach(mycount);
+                          
                 download('chdditri.csv', textcoufasta);    
                 
             }
             
             fr.readAsText(this.files[0]);})
 
-      function mycount(item,index,arr2){}
+      
         document.getElementById('numseqfile')
             .addEventListener('change', function() {
         var fr=new FileReader();
