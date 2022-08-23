@@ -18,8 +18,8 @@ h2 {
   color: #000080;
 }
 
-  
-  
+  label{float:right;}
+  input{float:right;}  
 #myInput {
   background-image: url("https://img.icons8.com/doodle/96/000000/search--v1.png");
   background-position: 5px 7px;
@@ -78,7 +78,7 @@ h2 {
     <input type="file" name="dtfile"
             id="dtfile"></a></li>
   
-  <li><a href="#">Join or concatenate two files<label>Output file name: </label> <input type="text" id="opfncat" name="opfncat" value="ct.csv"><br> <label>File 1: </label><input type="file" id="catfile1" name="catfile1"<br>
+  <li><a href="#">Join or concatenate two files<br><label>Output file name: </label> <input type="text" id="opfncat" name="opfncat" value="ct.csv"><br> <label>File 1: </label><input type="file" id="catfile1" name="catfile1"<br>
     <label>File 2: </label><input type="file" name="catfile2"
             id="catfile2"></a></li>
   <li><a href="#">Linear svc<br> <label>File input: </label><input type="file" name="csvf"
@@ -146,7 +146,7 @@ h2 {
    
    document.getElementById('dtfile')
             .addEventListener('change', function() {
-     alert("Press ok to begin script, Don't close page. ");
+     alert("Press ok to begin script, Don't close page. Keep pressing wait when it appears. ");
 
         var fr=new FileReader();
             fr.onload=function(){
@@ -263,6 +263,6 @@ function myFunction() {
     }
 }
 </script>
-  <label>version:16</label>
+  <label>version:17</label>
 </body>
 </html>
