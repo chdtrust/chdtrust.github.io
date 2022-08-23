@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <script src="//unpkg.com/brain.js"></script>
 
 <style>
   
@@ -82,7 +82,7 @@ h2 {
     <label>File 2: </label><input type="file" name="catfile2"
             id="catfile2"></a></li>
   <li><a href="#">Linear svc<br> <label>File input: </label><input type="file" name="csvf"
-            id="csvf"></a></li>
+            id="csvf"><div id="demo"></div></a></li>
  </ul>
 
    <py-env
@@ -96,7 +96,33 @@ h2 {
   </py-script>
   
  <script type="text/javascript">
+    document.getElementById('csvf')
+            .addEventListener('change', function() {
+        var fr=new FileReader();
+            fr.onload=function(){
+                const network = new brain.NeuralNetwork();
+
+// Train the Network with 4 input objects
+network.train([
+  {input:[0,0], output:{zero:1}},
+  {input:[0,1], output:{one:1}},
+  {input:[1,0], output:{one:1}},
+  {input:[1,1], output:{zero:1}},
+]);
+
+// What is the expected output of [1,0]?
+let result = network.run([1,0]);
+
+// Display the probability for "zero" and "one"
+document.getElementById("demo").innerHTML =
+"one: " + result["one"] + "<br>" + "zero: " + result["zero"];
+                
+            }
+            
+            fr.readAsText(this.files[0]);})
    
+   
+  
   
    var texcatfile1="";
    
@@ -263,6 +289,6 @@ function myFunction() {
     }
 }
 </script>
-  <label>version:17</label>
+  <label>version:18</label>
 </body>
 </html>
