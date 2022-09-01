@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="//unpkg.com/brain.js"></script>
-
+ <script src="https://unpkg.com/pdf-lib"></script>
 <style>
   
 * {
@@ -82,6 +82,7 @@ h2 {
             id="catfile2"></a></li>
   <li><a href="#">Linear svc<form><br> <label>File input: </label><input type="file" name="csvf"
                                                                          id="csvf"><div id="demo"></div></form></a></li>
+  <li><a href="#">Add content to pdf file<input type="file" name="pdffile" id="pdfile"></a></li>
  </ul>
 
    <py-env
@@ -95,6 +96,37 @@ h2 {
   </py-script>
   
  <script type="text/javascript">
+    
+   document.getElementById('pdffile')
+            .addEventListener('change', function() {
+        var fr=new FileReader();
+      fr.readAsArrayBuffer(file);
+            fr.onload= () => {
+   
+  import { degrees, PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+
+async function modifyPdf() {
+
+
+  const pdfDoc = await PDFDocument.load(fr.result);
+  const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica)
+
+  const pages = pdfDoc.getPages()
+  const firstPage = pages[0]
+  const { width, height } = firstPage.getSize()
+  firstPage.drawText('This text was added with JavaScript!', {
+    x: 5,
+    y: height / 2 + 300,
+    size: 50,
+    font: helveticaFont,
+    color: rgb(0.95, 0.1, 0.1),
+    rotate: degrees(-45),
+  })
+
+  const pdfBytes = await pdfDoc.save()
+}
+            }
+   fr.readAsText(this.files[0]);})
     document.getElementById('csvf')
             .addEventListener('change', function() {
         var fr=new FileReader();
@@ -288,6 +320,6 @@ function myFunction() {
     }
 }
 </script>
-  <label>version:19</label>
+  <label>version:20</label>
 </body>
 </html>
