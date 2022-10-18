@@ -138,7 +138,7 @@ h2 {
             .addEventListener('change', function() {
         var fr=new FileReader();
             fr.onload=function(){
-                anexcel=ExcelToJSON.parseExcel(fr);
+                anexcel=ExcelToJSON(fr);
               download('chdjson.fasta', anexcel); 
                 
                 
@@ -339,6 +339,6 @@ function myFunction() {
     }
 }
 </script>
-  <label>version:24</label>
+  <label>version:25</label>
 </body>
 </html>
