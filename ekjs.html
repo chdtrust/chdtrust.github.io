@@ -3,6 +3,38 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="//unpkg.com/brain.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+<script>
+var ExcelToJSON = function() {
+
+  this.parseExcel = function(file) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      var data = e.target.result;
+      var workbook = XLSX.read(data, {
+        type: 'binary'
+      });
+
+      workbook.SheetNames.forEach(function(sheetName) {
+        // Here is your object
+        var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+        var json_object = JSON.stringify(XL_row_object);
+        console.log(json_object);
+
+      })
+
+    };
+
+    reader.onerror = function(ex) {
+      console.log(ex);
+    };
+
+    reader.readAsBinaryString(file);
+  };
+};
+</script>
 
 <style>
   
@@ -51,6 +83,9 @@ h2 {
 #myUL li a:hover:not(.header) {
   background-color: #eee;
 }
+  input {
+    position: relative;
+  left:10%;}
 </style>
 </head>
 <body>
@@ -82,6 +117,7 @@ h2 {
             id="catfile2"></a></li>
   <li><a href="#">Linear svc<br> <label>File input: </label><input type="file" name="csvf"
                                                                          id="csvf"><div id="demo"></div></a></li>
+  <li><a href="#">Select single domain proteins froma excel file <label>Domain name: </label><input type="text" name="domname" id="domname"><input type="file" name="uniprotexcelfile" id="uniprotexcelfile"></a></li>
   <li><a href="#">Add content to pdf file<input type="file" name="pdffile" id="pdfile"></a></li>
  </ul>
 
@@ -96,6 +132,19 @@ h2 {
   </py-script>
   
  <script type="text/javascript">
+   
+   
+   document.getElementById('uniprotexcelfile')
+            .addEventListener('change', function() {
+        var fr=new FileReader();
+            fr.onload=function(){
+                anexcel=ExcelToJson(fr);
+              download('chdjson.fasta', anexcel); 
+                
+                
+            }
+            
+            fr.readAsText(this.files[0]);})
   
     document.getElementById('csvf')
             .addEventListener('change', function() {
